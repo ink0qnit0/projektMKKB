@@ -1,0 +1,47 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: #000000;
+}
+ 
+form{
+    text-align: center;
+    margin: 10px auto;
+    height: 110px;
+}
+.btn-outline-info{
+    width: 50%;
+    margin: 10px auto;
+}
+.btn-outline-info:hover{
+    font-size: 24px;
+    transition: 1s;
+    border: none;
+}
+.jumbotron{
+    position: relative;
+    margin: 20px auto;
+    height: 300px;
+}
+
+.jumbotron > .container  img{
+    position: absolute;
+    left: 80%;
+    /* top: 50%; */
+    border-radius: 100%;
+    margin: -20px auto;
+}
+a{
+    text-decoration: none;
+    color: #000000;
+}
+a:hover{
+    text-decoration: none;
+    color: #15771a;
+    font-size: 24px;
+    transition: 1s;
+}
+.mark{
+    text-align: center;
+    width: 40%;
+}
