@@ -61,3 +61,6 @@ main a:hover{
 	border-radius: 15px;
     font-weight: 700;
 }
+.lead {
+    width: 700px !important;
+}

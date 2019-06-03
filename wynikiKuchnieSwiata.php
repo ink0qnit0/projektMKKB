@@ -129,7 +129,7 @@ if(isset($_POST['wyszukaj'])){
                      echo "  <div class='container'>";
                      echo "    <img src=".$wynik['Zdjęcie']." alt='przykładowe zdjęcie'>";
                      echo "    <h1 class='display-4'>".$wynik['Nazwa']."</h1>";
-                     echo "    <p class='lead'>Naleśniki z serem i z jabłkiem najlepsze na wspólne kolacje rodzinne</p>";
+                     echo "    <p class='lead'>".$wynik['Opis']."</p>";
                      echo "    <p class='mark'><a href=".$wynik['Link'].">Aby zdobyć przepis kliknij tutaj!</a></p>";
                      echo "  </div>";
                      echo "</section>";
