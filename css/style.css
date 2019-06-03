@@ -1,17 +1,35 @@
 body{
-    margin: 0;
-    padding: 0;
-    background: #000000;
+    margin: 0 !important;
+    padding: 0 !important;
+	background: #000000;
+	
+	/* #0a5092 */
 }
 
-.box{
+.row{
+	width: 100%;
+}
+
+.navbar{
+	border-radius: 20px;
+}
+
+.wysz{
     width: 500px;
     height: 200px;
-    margin: auto;
-    transform: translateY(180%);
+    margin: 40px auto;
     border: 2px solid #ffffff;
     border-radius: 20px;
-    text-align: center;
+	text-align: center;
+	background: #000000;
+}
+.wysz:hover{
+	background: #ffffff;
+}
+
+.logo{
+	text-align: center;
+	background: #000000;
 }
 
 .input-group{
@@ -25,7 +43,85 @@ body{
     border:none;
 }
 
+/* TOP DNIA  */
+
+#topDnia  .box{
+	border: 2px solid #ffffff;
+	width: 300px;
+	height: 400px;
+	margin: 10px auto;
+	border-radius: 20px;
+	background: #000000;
+}
 
 
 
+#topDnia h3{
+	color: #ffffff;
+	text-align: center;
+	margin-top: 5px;
+}
 
+#topDnia .box > p{
+	color: #ffffff;
+	text-align: center;
+	margin-top: 150px;
+	font-size: 32px;
+}
+
+
+#topDnia  .box:hover{
+	border: 2px solid #ffffff;
+	width: 300px;
+	height: 400px;
+	margin: 10px auto;
+	border-radius: 20px;
+	background: #ffffff;
+}
+
+#topDnia .box:hover > h3{
+	color: #000000;
+	text-align: center;
+	margin-top: 5px;
+}
+
+#topDnia .box:hover > p{
+	color: #ffffff00;
+	text-align: center;
+	margin-top: 150px;
+	font-size: 32px;
+}
+
+.nav-item:hover{
+	color: #000000;
+	background: #ff3939;
+	border-radius: 15px;
+	font-weight: 700;
+}
+
+/* tło do TOP DNIA */
+
+#topDnia .cosSlodkiego:hover{
+	background: #ffffff url("../img/Przekaski.png") no-repeat center;
+	background-size: 100%;
+}
+#topDnia .zupka:hover{
+	background: #ffffff url("../img/Diety.png") no-repeat center;
+	background-size: 100%;
+}
+#topDnia .cosDlaDzieci:hover{
+	background: #ffffff url("../img/DlaDzieci.png") no-repeat center;
+	background-size: 100%;
+}
+#topDnia .drugieDanie:hover{
+	background: #ffffff url("../img/Dania.png") no-repeat center;
+	background-size: 100%;
+}
+#topDnia .cosEgzotycznego:hover{
+	background: #ffffff url("../img/KuchnieSwiata.png") no-repeat center;
+	background-size: 100%;
+}
+#topDnia .wege:hover{
+	background: #ffffff url("../img/Wege.png") no-repeat center;
+	background-size: 100%;
+}

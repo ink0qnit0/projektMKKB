@@ -9,15 +9,14 @@
 <!-- STYLESHEET BOOTSTRAP 4 ######################################################################################### -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/wyniki.css">
 
-    <title>Wyszukiwarka</title>
+    <title>Wyniki wyszukiwania</title>
 </head>
 <body>
-
 <!--################### LOGO ########################  -->
     
-    <div class="container">
+<div class="container">
         <div class="logo">
         <a href="index.php"><img src="img/logo.png" alt="Logo strony"></a>
         </div>
@@ -42,7 +41,7 @@
                     </li>
 
                     <li class="nav-item">
-                            <a class="nav-link" href="wynikiLodyNapoje.php">Lody i napoje</a>
+                            <a class="nav-link" href="wynikiLodyNapoje">Lody i napoje</a>
                     </li>
 
                     <li class="nav-item">
@@ -57,7 +56,7 @@
                     </li>
 
                     <li class="nav-item">
-                            <a class="nav-link" href="wynikiKuchnieSwiata.php">Kuchnie świata</a>
+                            <a class="nav-link" href="#">Kuchnie świata</a>
                     </li>
 
                     <li class="nav-item">
@@ -77,78 +76,88 @@
     </div>
 </div>
 
+<!-- WYSZUKIWARKA -->
 
-<!--########################### WYSZUKIWARKA ###############################################-->
-<div class="row">
-    <main class="container tlo">
-        <div class="wysz">
-            <form action="wynikiWszystkie.php" method="POST">
+    <nav class="container">
+        <div class="box">
+            <form  method="POST">
                 <div class="input-group input-group-lg">
                     <div class="input-group-prepend">
                       <span class="input-group-text" id="inputGroup-sizing-lg">Wyszukaj:</span>
                     </div>
-                    <input name="wyszukaj" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Co mam wyszukać? :)" autocomplete = off>
+                    <input name="wyszukaj" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Co mam wyszukać? :)">
                   </div>
                 <input class="btn btn-outline-info" type="submit" value="WYSZUKAJ!">
             </form>
         </div>
-    </main>
-</div>
+    </nav>
 
-<!-- ######################## TOP DANIA #################################################### -->
-<section id="topDnia">
-    <div class="row">
-        <div class="col-4">
-            <div class="box cosSlodkiego">
-                <h3>Top dnia</h3>
-                <p>Coś słodkiego</p>
+<!-- WYNIKI WYSZUKIWANIA -->
 
-            </div>
-        </div>
+<main class="container">
+<?php
 
-        <div class="col-4">
-            <div class="box zupka">
-                <h3>Top dnia</h3>
-                <p>Zupka</p>
-                
-            </div>
-        </div>
+require_once "connect.php";
 
-        <div class="col-4">
-            <div class="box cosDlaDzieci">
-                <h3>Top dnia</h3>
-                <p>Coś dla dzieci</p>
+if(isset($_POST['wyszukaj'])){
+    require_once('connect.php');
 
-            </div>
-        </div>
-    </div>
+    try{
+        $baza = new PDO('mysql:host='.$host.';dbname='.$db_name.';charset=utf8',$db_user,$db_password,array(
+            PDO::ATTR_EMULATE_PREPARES => false,
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+        ));
 
-    <div class="row">
-        <div class="col-4">
-            <div class="box drugieDanie">
-                <h3>Top dnia</h3>
-                <p>Drugie Danie</p>
+            $wyszukaj=$_POST['wyszukaj'];
 
-            </div>
-        </div>
+            $min_wartosc = 1;
 
-        <div class="col-4">
-            <div class="box cosEgzotycznego">
-                <h3>Top dnia</h3>
-                <p>Coś egzotycznego</p>
+            if(strlen($wyszukaj) >= $min_wartosc){
+                $wyszukaj = htmlspecialchars($wyszukaj);
+                $zapytanie = $baza -> prepare("SELECT * FROM przepisy WHERE Nazwa LIKE :wyszukaj AND Kategoria = 'KuchnieSwiata' ");
+                $zapytanie -> bindValue('wyszukaj', $_POST['wyszukaj'],PDO::PARAM_STR);
 
-            </div>
-        </div>
+                $zapytanie -> execute(array('%'.$wyszukaj.'%'));
 
-        <div class="col-4">
-            <div class="box wege">
-                <h3>Top dnia</h3>
-                <p>Wege</p>
+                if($zapytanie ->rowCount()>0)
+                {
+                    while($wynik = $zapytanie->fetch())
+                    {
+                     
 
-            </div>
-        </div>
-    </div>
-</section>
+                     echo "<section class='jumbotron'>";
+                     echo "  <div class='container'>";
+                     echo "    <img src=".$wynik['Zdjęcie']." alt='przykładowe zdjęcie'>";
+                     echo "    <h1 class='display-4'>".$wynik['Nazwa']."</h1>";
+                     echo "    <p class='lead'>Naleśniki z serem i z jabłkiem najlepsze na wspólne kolacje rodzinne</p>";
+                     echo "    <p class='mark'><a href=".$wynik['Link'].">Aby zdobyć przepis kliknij tutaj!</a></p>";
+                     echo "  </div>";
+                     echo "</section>";
+
+                    }
+                } else{
+                    echo "<p style='color: white; font-size:24px; text-align: center;'>Nie udało się znaleźć</p>";
+                }
+            } else {
+                echo "";
+            }
+
+            $baza=null;
+
+
+
+        
+    } catch(PDOException $err){
+        echo "ERROR!: ". $err->getMessage();
+    }
+
+
+
+}
+
+?>
+
+</main>
 
 <!-- SCRIPT BOOTSTRAP 4 ########################################################################################### -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

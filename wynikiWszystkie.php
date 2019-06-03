@@ -9,17 +9,16 @@
 <!-- STYLESHEET BOOTSTRAP 4 ######################################################################################### -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/wyniki.css">
 
-    <title>Wyszukiwarka</title>
+    <title>Wyniki wyszukiwania</title>
 </head>
 <body>
-
 <!--################### LOGO ########################  -->
     
-    <div class="container">
+<div class="container">
         <div class="logo">
-        <a href="index.php"><img src="img/logo.png" alt="Logo strony"></a>
+       <a href="index.php"><img src="img/logo.png" alt="Logo strony"></a>
         </div>
     </div>
 
@@ -69,7 +68,7 @@
                     </li>
 
                     <li class="nav-item">
-                            <a class="nav-link" href="wynikiWszystkie.php">Wszystkie Przepisy</a>
+                            <a class="nav-link" href="#">Wszystkie Przepisy</a>
                     </li>
                     
                 </div>
@@ -77,78 +76,31 @@
     </div>
 </div>
 
+<!-- WYSZUKIWARKA -->
 
-<!--########################### WYSZUKIWARKA ###############################################-->
-<div class="row">
-    <main class="container tlo">
-        <div class="wysz">
-            <form action="wynikiWszystkie.php" method="POST">
+    <nav class="container">
+        <div class="box">
+            <form  method="POST">
                 <div class="input-group input-group-lg">
                     <div class="input-group-prepend">
                       <span class="input-group-text" id="inputGroup-sizing-lg">Wyszukaj:</span>
                     </div>
-                    <input name="wyszukaj" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Co mam wyszukać? :)" autocomplete = off>
+                    <input name="wyszukaj" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Co mam wyszukać? :)">
                   </div>
                 <input class="btn btn-outline-info" type="submit" value="WYSZUKAJ!">
             </form>
         </div>
-    </main>
-</div>
+    </nav>
 
-<!-- ######################## TOP DANIA #################################################### -->
-<section id="topDnia">
-    <div class="row">
-        <div class="col-4">
-            <div class="box cosSlodkiego">
-                <h3>Top dnia</h3>
-                <p>Coś słodkiego</p>
+<!-- WYNIKI WYSZUKIWANIA -->
 
-            </div>
-        </div>
+<main class="container">
+<?php
 
-        <div class="col-4">
-            <div class="box zupka">
-                <h3>Top dnia</h3>
-                <p>Zupka</p>
-                
-            </div>
-        </div>
+    include "wynikiWyszukiwania.php";
 
-        <div class="col-4">
-            <div class="box cosDlaDzieci">
-                <h3>Top dnia</h3>
-                <p>Coś dla dzieci</p>
-
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-4">
-            <div class="box drugieDanie">
-                <h3>Top dnia</h3>
-                <p>Drugie Danie</p>
-
-            </div>
-        </div>
-
-        <div class="col-4">
-            <div class="box cosEgzotycznego">
-                <h3>Top dnia</h3>
-                <p>Coś egzotycznego</p>
-
-            </div>
-        </div>
-
-        <div class="col-4">
-            <div class="box wege">
-                <h3>Top dnia</h3>
-                <p>Wege</p>
-
-            </div>
-        </div>
-    </div>
-</section>
+?>
+</main>
 
 <!-- SCRIPT BOOTSTRAP 4 ########################################################################################### -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
