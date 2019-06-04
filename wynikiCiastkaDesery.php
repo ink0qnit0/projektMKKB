@@ -45,26 +45,11 @@
                     </li>
 
                     <li class="nav-item">
-                            <a class="nav-link" href="wynikiBazaSkladnikow.php">Baza składników</a>
-                    </li>
-                    <li class="nav-item">
                             <a class="nav-link" href="wynikiWege.php">Wege</a>
                     </li>
 
                     <li class="nav-item">
-                            <a class="nav-link" href="wynikiDiety.php">Diety</a>
-                    </li>
-
-                    <li class="nav-item">
                             <a class="nav-link" href="wynikiKuchnieSwiata.php">Kuchnie świata</a>
-                    </li>
-
-                    <li class="nav-item">
-                            <a class="nav-link" href="wynikiDlaDzieci.php">Dla Dzieci</a>
-                    </li>
-
-                    <li class="nav-item">
-                            <a class="nav-link" href="wynikiPoradyInspiracje.php">Porady i Inspiracje</a>
                     </li>
 
                     <li class="nav-item">

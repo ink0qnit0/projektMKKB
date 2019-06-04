@@ -41,18 +41,11 @@
                     </li>
 
                     <li class="nav-item">
-                            <a class="nav-link" href="wynikiLodyNapoje">Lody i napoje</a>
+                            <a class="nav-link" href="wynikiLodyNapoje.php">Lody i napoje</a>
                     </li>
 
-                    <li class="nav-item">
-                            <a class="nav-link" href="wynikiBazaSkladnikow.php">Baza składników</a>
-                    </li>
                     <li class="nav-item">
                             <a class="nav-link" href="#">Wege</a>
-                    </li>
-
-                    <li class="nav-item">
-                            <a class="nav-link" href="wynikiDiety.php">Diety</a>
                     </li>
 
                     <li class="nav-item">
@@ -60,16 +53,9 @@
                     </li>
 
                     <li class="nav-item">
-                            <a class="nav-link" href="wynikiDlaDzieci.php">Dla Dzieci</a>
-                    </li>
-
-                    <li class="nav-item">
-                            <a class="nav-link" href="wynikiPoradyInspiracje.php">Porady i Inspiracje</a>
-                    </li>
-
-                    <li class="nav-item">
                             <a class="nav-link" href="wynikiWszystkie.php">Wszystkie Przepisy</a>
                     </li>
+                    
                     
                 </div>
         </nav>
