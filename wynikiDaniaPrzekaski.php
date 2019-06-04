@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
@@ -14,7 +14,7 @@
     <title>Wyniki wyszukiwania</title>
 </head>
 <body>
-<!--################### LOGO ########################  -->
+<!--###################### LOGO ########################  -->
     
 <div class="container">
         <div class="logo">
